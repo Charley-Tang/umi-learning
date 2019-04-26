@@ -1,0 +1,52 @@
+:global {
+  // 框架样式
+  .app-layout {
+    overflow-y: hidden;
+
+    .ant-layout-sider {
+      height: 100vh;
+    }
+
+    .ant-layout-header .trigger {
+      font-size: 18px;
+      line-height: 64px;
+      padding: 0 24px;
+      cursor: pointer;
+      -webkit-transition: color 0.3s;
+      transition: color 0.3s;
+    }
+
+    .ant-layout-header .trigger:hover {
+      color: #3478e7;
+    }
+
+    .ant-layout-content {
+      margin: 0px 0px 0px 20px !important;
+      background: none !important;
+      overflow-y: auto;
+    }
+
+    .logo {
+      height: 32px;
+      margin: 16px;
+      color: #fefefe;
+      font-size: 20px;
+      text-align: center;
+
+      + ul {
+        height: 100%;
+        overflow-y: auto;
+      }
+
+      + ul::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    ._logo {
+      height: 32px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 16px;
+    }
+  }
+}
