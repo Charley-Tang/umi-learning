@@ -6,7 +6,10 @@ const earth = require("@/assert/images/Earth and Moon.jpg");
 
 const { Meta } = Card;
 
-@connect(({ todoList }) => ({ todoList }))
+@connect(({ todoList, loading }) => ({
+  todoList,
+  fetchTodoListLoading: loading.effects["todoList/fetchTodoList"]
+}))
 export default class TodoList extends PureComponent {
   fetchTodoList = () => {
     this.props.dispatch({
@@ -23,8 +26,11 @@ export default class TodoList extends PureComponent {
   };
 
   render() {
-    const { pathname, query } = this.props.location;
-    const { data = [] } = this.props.todoList;
+    const {
+      location: { pathname, query },
+      todoList: { data = [] },
+      fetchTodoListLoading
+    } = this.props;
 
     return (
       <Card>
@@ -52,7 +58,11 @@ export default class TodoList extends PureComponent {
             ))}
           </Card>
         ) : (
-          <Button onClick={this.fetchTodoList} type="primary">
+          <Button
+            onClick={this.fetchTodoList}
+            loading={fetchTodoListLoading}
+            type="primary"
+          >
             fetch TodoList
           </Button>
         )}

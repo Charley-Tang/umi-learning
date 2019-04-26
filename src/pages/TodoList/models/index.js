@@ -10,6 +10,13 @@ export default {
       const res = yield call(fetchTodoList, payload);
 
       const { data = [] } = res;
+
+      yield new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Time out");
+        }, 1000);
+      });
+
       yield put({ type: "setTodoList", payload: { data } });
 
       return res;

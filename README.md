@@ -1,2 +1,4 @@
 # umi-learning
-for iCode
+安装：yarn
+
+启动：umi dev
